@@ -43,7 +43,7 @@ if __name__ == "__main__":
     for n in range(math.ceil(number/500)): 
             link = link_first
             if flag == True:
-                link = link + "&last_id=" + LastMID
+                link = link + "&last_id=" + Last_mtime_id
             while True: #判断网页是否成功加载数据
                 res = get_data(link)
                 if ('data' in res):
@@ -59,5 +59,5 @@ if __name__ == "__main__":
                 mtime.append(i['mtime'])       
             print(res['data']['result'][-1]['card']['name'],res['data']['result'][-1]['card']['sex'],res['data']['result'][-1]['mtime'])
             flag = True
-            LastMID = res['data']['result'][-1]['mtime_id']
+            Last_mtime_id = res['data']['result'][-1]['mtime_id']
             save_data(uid, name, sex,motto,face, mtime)
